@@ -3,7 +3,11 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('modelDesTreeReg.pkl', 'rb'))
+modelLR = pickle.load(open('LinearRegression.pkl', 'rb'))
+modelDT = pickle.load(open('DecisionTreeRegression.pkl', 'rb'))
+modelRF = pickle.load(open('RandomForestRegression.pkl', 'rb'))
+modelNN = pickle.load(open('NeuralNetworks_50.pkl', 'rb'))
+
 
 @app.route('/')
 def home():
@@ -16,9 +20,15 @@ def predict():
     '''
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
-
-    output = round(prediction[0], 2)
+    predictionLR = modelLR.predict(final_features)
+    predictionDT = modelDT.predict(final_features)
+    predictionRF = modelRF.predict(final_features)
+    NN_int_features = [predictionLR, predictionDT,predictionRF]
+    NN_final_features = [np.array(NN_int_features)]
+    predictionNN= modelNN.predict(NN_final_features)
+    
+    
+    output = round(predictionNN[0], 2)
 
     return render_template('index.html', prediction_text='PCI is = $ {}'.format(output))
 
