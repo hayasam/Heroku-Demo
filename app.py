@@ -23,12 +23,13 @@ def predict():
     predictionLR = modelLR.predict(final_features)
     predictionDT = modelDT.predict(final_features)
     predictionRF = modelRF.predict(final_features)
-    NN_int_features = [predictionLR, predictionDT,predictionRF]
+    NN_int_features = [predictionLR[0][0], predictionDT[0],predictionRF[0]]
     NN_final_features = [np.array(NN_int_features)]
     predictionNN= modelNN.predict(NN_final_features)
-    
-    
-    output = round(predictionNN[0], 2)
+
+
+    # output = round(predictionNN[0], 2)
+    output = np.round(predictionNN[0], 2)
 
     return render_template('index.html', prediction_text='PCI is = $ {}'.format(output))
 
