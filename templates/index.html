@@ -11,22 +11,50 @@
 
 </head>
 
+
+
 <body>
-	<div>
-	<img src="PCI.png" alt="PCI"/> 	
-	</div>
+
  <div class="login">
-	<h1>Predict PCI</h1>
-        
+	<h1>Estimation of PCI Using Neural Network </h1>
+  <div>
+ 	<img src="chart.jpg" alt="PCI"/>
+ 	</div>
      <!-- Main Input For Receiving Query to our ML -->
 	 <!--alligator 	patching 	longitudinal 	Shoving 	potholes 	-->
+
     <form action="/predict" method="post">
-    	<input type="text" name="alligator" placeholder="alligator" required="required" />
-        <input type="text" name="patching" placeholder="patching" required="required" />
-		<input type="text" name="longitudinal" placeholder="longitudinal" required="required" />
-    <input type="text" name="Shoving" placeholder="Shoving" required="required" />
-    <input type="text" name="potholes" placeholder="potholese" required="required" />
+      <div>
+    	<input type="text" name="GATOR_CRACK_L" placeholder="GATOR_CRACK_L" required="required" />
+      <input type="text" name="GATOR_CRACK_M" placeholder="GATOR_CRACK_M" required="required" />
+      <input type="text" name="GATOR_CRACK_H" placeholder="GATOR_CRACK_H" required="required" />
+    </div>
+    <div>
+      <input type="text" name="LONG_CRACK_L" placeholder="LONG_CRACK_L" required="required" />
+      <input type="text" name="LONG_CRACK_M" placeholder="LONG_CRACK_M" required="required" />
+      <input type="text" name="LONG_CRACK_H" placeholder="LONG_CRACK_H" required="required" />
+</div>
+<div>
+      <input type="text" name="TRANS_CRACK_L" placeholder="TRANS_CRACK_L" required="required" />
+      <input type="text" name="TRANS_CRACK_M" placeholder="TRANS_CRACK_M" required="required" />
+      <input type="text" name="TRANS_CRACK_H" placeholder="TRANS_CRACK_H" required="required" />
+</div>
+<div>
+      <input type="text" name="PATCH_A_L" placeholder="PATCH_A_L" required="required" />
+      <input type="text" name="PATCH_A_M" placeholder="PATCH_A_M" required="required" />
+      <input type="text" name="PATCH_A_H" placeholder="PATCH_A_H" required="required" />
+</div>
+<div>
+      <input type="text" name="POTHOLES_NO_L" placeholder="POTHOLES_NO_L" required="required" />
+      <input type="text" name="POTHOLES_NO_M" placeholder="POTHOLES_NO_M" required="required" />
+      <input type="text" name="POTHOLES_NO_H" placeholder="POTHOLES_NO_H" required="required" />
+      </div>
+      <div>
+      <input type="text" name="SHOVING_A" placeholder="SHOVING_A" required="required" />
+</div>
+</div>
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </div>
     </form>
 
    <br>
